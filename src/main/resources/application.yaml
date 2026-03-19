@@ -7,9 +7,12 @@ spring:
 
   datasource:
     # url: jdbc:mysql://localhost:3307/userdb
-    url: jdbc:mysql://mysql-service:3306/userdb
-    username: marco
-    password: 123456789
+    # url: jdbc:mysql://mysql-service:3306/userdb
+    url: ${DB_URL}
+    # username: marco
+    username: ${DB_USERNAME}
+    # password: 123456789
+    password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -24,7 +27,8 @@ eureka:
   client:
     service-url:
       # defaultZone: http://localhost:8761/eureka/
-      defaultZone: http://eureka-server:8761/eureka/
+      # defaultZone: http://eureka-server:8761/eureka/
+      defaultZone: https://eureka-server-ufvy.onrender.com/:8761/eureka/
   instance:
     hostname: localhost
     prefer-ip-address: true
