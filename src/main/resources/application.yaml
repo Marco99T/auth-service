@@ -28,7 +28,7 @@ eureka:
     service-url:
       # defaultZone: http://localhost:8761/eureka/
       # defaultZone: http://eureka-server:8761/eureka/
-      defaultZone: https://eureka-server-ufvy.onrender.com/:8761/eureka/
+      defaultZone: https://eureka-server-ufvy.onrender.com:8761/eureka/
   instance:
     hostname: localhost
     prefer-ip-address: true
