@@ -30,8 +30,13 @@ eureka:
       # defaultZone: http://eureka-server:8761/eureka/
       defaultZone: https://eureka-server-ufvy.onrender.com/eureka/
   instance:
-    hostname: localhost
-    prefer-ip-address: true
+    # hostname: localhost
+    hostname: auth-service-hjq7.onrender.com
+    # prefer-ip-address: true
+    prefer-ip-address: false
+    # RENDER
+    secure-port-enabled: true
+    non-secure-port-enabled: false
 
 jwt:
   refresh-expiration-ms: 604800000   # 7 días en milisegundos
