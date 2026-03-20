@@ -32,11 +32,11 @@ eureka:
   instance:
     # hostname: localhost
     hostname: auth-service-hjq7.onrender.com
-    # prefer-ip-address: true
-    prefer-ip-address: false
+    prefer-ip-address: true
+    # prefer-ip-address: false
     # RENDER
-    secure-port-enabled: true
-    non-secure-port-enabled: false
+    # secure-port-enabled: true
+    # non-secure-port-enabled: false
 
 jwt:
   refresh-expiration-ms: 604800000   # 7 días en milisegundos
