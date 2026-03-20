@@ -3,7 +3,7 @@ name: Auth CI/CD
 on:
   push:
     paths:
-    - "./**"
+    - "./"
 
 jobs:
   build:
