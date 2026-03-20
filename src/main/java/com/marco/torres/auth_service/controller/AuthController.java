@@ -1,7 +1,5 @@
 package com.marco.torres.auth_service.controller;
 
-import java.util.Map;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.marco.torres.auth_service.dto.AuthResponse;
 import com.marco.torres.auth_service.dto.LoginRequest;
 import com.marco.torres.auth_service.dto.RefreshRequest;
-import com.marco.torres.auth_service.security.JwtService;
 import com.marco.torres.auth_service.service.AuthService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,7 +21,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AuthController {
 
     private final AuthService authService;
-    private final JwtService jwtService;
 
     @GetMapping("/hello")
     public ResponseEntity<String> getMethodName() {
