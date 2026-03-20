@@ -26,9 +26,9 @@ spring:
 eureka:
   client:
     service-url:
-      # defaultZone: http://localhost:8761/eureka/
+      # defaultZone: http://localhost:8761/eureka/ #LOCAL
       # defaultZone: http://eureka-server:8761/eureka/
-      defaultZone: ${URL_EUREKA:http://localhost:8761/eureka/}
+      defaultZone: ${URL_EUREKA:http://eureka-server:8761/eureka/} #DEFAULT DOCKER
   instance:
     # hostname: localhost
     hostname: auth-service-hjq7.onrender.com
