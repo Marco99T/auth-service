@@ -39,13 +39,13 @@ public class RefreshTokenService {
     public void rotate(RefreshToken oldToken, String newTokenValue) {
         oldToken.setRevoked(true);
         repository.save(oldToken);
-        create(oldToken.getUsername(), newTokenValue);
+        create(oldToken.getEmail(), newTokenValue);
     }
 
     @NonNull
-    protected RefreshToken create(String username, String token) {
+    protected RefreshToken create(String email, String token) {
         RefreshToken refreshToken = new RefreshToken();
-        refreshToken.setUsername(username);
+        refreshToken.setEmail(email);
         refreshToken.setToken(token);
         refreshToken.setExpiryDate(
                 Instant.now().plusMillis(refreshExpirationMs));

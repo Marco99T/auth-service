@@ -38,9 +38,9 @@ public class AuthService {
         try {
             authenticationManager = authenticationConfiguration.getAuthenticationManager();
             authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+                    new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
             CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
-            User user = userRepository.findByUsername(userDetails.getUsername())
+            User user = userRepository.findByEmail(userDetails.getEmail())
                     .orElseThrow();
 
             String accesToken = jwtService.generateToken(user);
@@ -59,12 +59,12 @@ public class AuthService {
     public AuthResponse refreshToken(RefreshRequest request) {
         RefreshToken storedToken = refreshTokenService.validate(request.getRefreshToken());
 
-        String username = storedToken.getUsername();
-        User user = userRepository.findByUsername(username)
+        String email = storedToken.getEmail();
+        User user = userRepository.findByEmail(email)
                 .orElseThrow();
 
         String newAccessToken = jwtService.generateToken(user);
-        String newRefreshToken = jwtService.generateRefreshToken(username);
+        String newRefreshToken = jwtService.generateRefreshToken(email);
 
         refreshTokenService.rotate(storedToken, newRefreshToken);
 

@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.marco.torres.auth_service.entity.User;
 
 public class CustomUserDetails implements UserDetails {
-
     private final User user;
 
     public CustomUserDetails(User user) {
@@ -19,6 +18,10 @@ public class CustomUserDetails implements UserDetails {
 
     public Long getId() {
         return user.getId();
+    }
+
+    public String getEmail() {
+        return user.getEmail();
     }
 
     public String getRole() {
