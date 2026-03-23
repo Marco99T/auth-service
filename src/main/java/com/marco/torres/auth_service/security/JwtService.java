@@ -25,7 +25,6 @@ public class JwtService {
         Instant now = Instant.now();
 
         return Jwts.builder()
-                .setSubject(user.getUsername())
                 .claim("userId", user.getId())
                 .claim("role", user.getRole())
                 .setIssuedAt(Date.from(now))
